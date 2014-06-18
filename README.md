@@ -12,5 +12,4 @@ http://goo.gl/fQVfSG
 
 Lưu ý là các bạn phải connect vào mạng trong KTX trước nhé 
 
-P/S: 
-- Mình mong nhận được sự phản hồi của các bạn để phần mềm được hoàn thiện hơn 
+Mình mong nhận được sự phản hồi của các bạn để phần mềm được hoàn thiện hơn 
