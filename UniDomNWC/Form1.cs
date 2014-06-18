@@ -147,15 +147,16 @@ namespace UniDomNWC
             return false;
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             Help help = new Help();
             help.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            disableProxy();
+            MessageBox.Show("Đã tắt proxy thành công\nKhởi dộng lại các trình duyệt đang mở để có hiệu lực!", "Thành công");
         }
 
     }
