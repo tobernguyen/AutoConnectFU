@@ -135,7 +135,7 @@ namespace UniDomNWC
 
             if (CheckForInternetConnection()) return LOGIN_STATUS.SUCCESS;
 
-            if ((content.Contains("FPT Telecom")))
+            if (isFptLoginPage())
             {
                 if (content.Contains("Khong dung mat khau")) return LOGIN_STATUS.WRONG_PASSWORD;
                 if (content.Contains("khong ton tai")) return LOGIN_STATUS.ACCOUNT_NOT_AVAILABLE;
@@ -146,7 +146,14 @@ namespace UniDomNWC
             else return LOGIN_STATUS.LOGIN_NOT_AVAILABLE;
         }
 
-        public bool CheckForInternetConnection()
+        private bool isFptLoginPage()
+        {
+            return webBrowser1.Document.GetElementById("auth_user").TagName == "INPUT" &&
+                webBrowser1.Document.GetElementById("auth_pass").TagName == "INPUT" &&
+                webBrowser1.Document.GetElementById("accept").TagName == "INPUT";
+        }
+
+        private bool CheckForInternetConnection()
         {
             string host = "google.com";
             bool result = false;

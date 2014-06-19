@@ -41,9 +41,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(44, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(340, 13);
+            this.label1.Size = new System.Drawing.Size(351, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Phần mềm cài đặt mạng tự động cho sinh viên FU-HL v1.3";
+            this.label1.Text = "Phần mềm cài đặt mạng tự động cho sinh viên FU-HL v1.3.2";
             // 
             // label2
             // 
