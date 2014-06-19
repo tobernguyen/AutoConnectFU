@@ -4,7 +4,10 @@ AutoConnectFU
 Một phần mềm nhỏ để tự động cài đặt mạng cho sinh viên FU-HL
 
 ###Link download
-http://goo.gl/fQVfSG
+
+v1.3: http://goo.gl/O7dui3
+
+v1.2: http://goo.gl/fQVfSG
 
 ###Sử dụng
 - Khi trên lên giảng đường các bạn click vào “Giảng đường FU-HL”
