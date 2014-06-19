@@ -5,6 +5,8 @@ Một phần mềm nhỏ để tự động cài đặt mạng cho sinh viên FU
 
 ###Link download
 
+v1.3.2: http://goo.gl/T3S9Hb
+
 v1.3: http://goo.gl/O7dui3
 
 v1.2: http://goo.gl/fQVfSG
