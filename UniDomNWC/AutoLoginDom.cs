@@ -78,7 +78,8 @@ namespace UniDomNWC
             switch (CheckConnectionStatus())
             {
                 case LOGIN_STATUS.SUCCESS:
-                    MessageBox.Show("Đăng nhập thành công! (Đã có mạng Internet)", "Thành công!");
+                    Form1.setGoogleDns(true);
+                    MessageBox.Show("Đăng nhập thành công! (Đã có mạng Internet và sử dụng Google DNS)", "Thành công!");
                     this.Close();
                     break;
                 case LOGIN_STATUS.WRONG_PASSWORD:

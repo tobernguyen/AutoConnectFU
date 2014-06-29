@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 using System.Net.NetworkInformation;
+using System.Management;
 
 namespace UniDomNWC
 {
@@ -43,8 +44,39 @@ namespace UniDomNWC
 
         private void button2_Click(object sender, EventArgs e)
         {
+            setGoogleDns(false);
             changeProxy();
             MessageBox.Show("Đã đổi proxy thành công\nKhởi dộng lại các trình duyệt đang mở để có hiệu lực!", "Thành công");
+        }
+
+        public static void setGoogleDns(bool isSetGoogleDNS)
+        {
+            ManagementClass objMC = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection objMOC = objMC.GetInstances();
+
+            foreach (ManagementObject objMO in objMOC)
+            {
+                if ((bool)objMO["IPEnabled"])
+                {
+                    // if you are using the System.Net.NetworkInformation.NetworkInterface you'll need to change this line to if (objMO["Caption"].ToString().Contains(NIC)) and pass in the Description property instead of the name 
+                        try
+                        {
+                            String googleDNS = "8.8.8.8,8.8.4.4";
+                            ManagementBaseObject newDNS =
+                                objMO.GetMethodParameters("SetDNSServerSearchOrder");
+                            if(isSetGoogleDNS)
+                                newDNS["DNSServerSearchOrder"] = googleDNS.Split(',');
+                            else newDNS["DNSServerSearchOrder"] = null;
+                            ManagementBaseObject setDNS =
+                                objMO.InvokeMethod("SetDNSServerSearchOrder", newDNS, null);
+                        }
+                        catch (Exception)
+                        {
+                            throw;
+                        }
+                    
+                }
+            }
         }
 
         private void changeProxy()
@@ -85,6 +117,7 @@ namespace UniDomNWC
                 if (result == DialogResult.Cancel) return;
             }
             AutoLoginDom login = new AutoLoginDom(txt_acc.Text, txt_pass.Text);
+            setGoogleDns(false);
             login.Show();
         }
 
@@ -156,7 +189,8 @@ namespace UniDomNWC
         private void button4_Click(object sender, EventArgs e)
         {
             disableProxy();
-            MessageBox.Show("Đã tắt proxy thành công\nKhởi dộng lại các trình duyệt đang mở để có hiệu lực!", "Thành công");
+            Form1.setGoogleDns(true);
+            MessageBox.Show("Đã tắt proxy và đổi DNS thành công\nKhởi dộng lại các trình duyệt đang mở để có hiệu lực!", "Thành công");
         }
 
     }
